@@ -159,48 +159,6 @@ taskbot-sql-agent/
 
 ---
 
-## Module Breakdown
-
-### `app/main.py`
-
-Streamlit application entrypoint. Initializes the database, handles UI rendering, and connects user input with the chat service.
-
-### `app/config/settings.py`
-
-Loads environment variables and centralizes runtime configuration such as model name, database path, and app title.
-
-### `app/db/`
-
-Contains database-related logic:
-
-* `connection.py`: database connection setup
-* `schema.py`: creates the `tasks` table
-* `seed.py`: optional demo task insertion
-
-### `app/agent/`
-
-Contains AI-agent-related components:
-
-* `llm.py`: LLM initialization
-* `toolkit.py`: SQL tool creation
-* `memory.py`: conversational memory setup
-* `prompt.py`: system prompt definition
-* `builder.py`: agent construction
-
-### `app/services/chat_service.py`
-
-Acts as the bridge between the UI and the AI agent.
-
-### `app/ui/components.py`
-
-Reusable Streamlit UI helpers.
-
-### `app/utils/logger.py`
-
-Logging configuration for debugging and monitoring.
-
----
-
 ## Database Schema
 
 The project uses a `tasks` table with the following schema:
@@ -228,7 +186,7 @@ CREATE TABLE IF NOT EXISTS tasks (
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/taskbot-sql-agent.git
+git clone https://github.com/SAKIB0004/taskbot-sql-agent.git
 cd taskbot-sql-agent
 ```
 
@@ -353,30 +311,14 @@ Task "Complete report" was deleted successfully.
 
 ---
 
-## Screenshots / Demo
-
-Add your screenshots here once available.
-
-### Suggested screenshot slots
-
-```text
-assets/screenshots/home.png
-assets/screenshots/task-list.png
-assets/screenshots/create-task.png
-assets/screenshots/update-task.png
-```
 
 ### Example Markdown
 
 ```md
-![Home Screen](assets/screenshots/home.png)
-![Task Listing](assets/screenshots/task-list.png)
+![Home Screen](assets\First Page.png)
+![Task ](assets\Second Page.png)
 ```
 
-### Demo
-
-* Live demo: `[Add deployment link here]`
-* Video walkthrough: `[Add demo video link here]`
 
 ---
 
@@ -403,21 +345,6 @@ You can inspect whether the `tasks` table exists using:
 ```bash
 python check_db.py
 ```
-
-### Run Tests
-
-If you add tests in a `tests/` directory:
-
-```bash
-pytest
-```
-
-### Recommended Future Additions for Testing
-
-* database connection tests
-* schema creation tests
-* service-level response tests
-* agent initialization tests
 
 ---
 
@@ -461,56 +388,6 @@ This project currently targets local development and demonstration.
 
 ---
 
-## Contributing
-
-Contributions, suggestions, and improvements are welcome.
-
-### Recommended workflow
-
-1. Fork the repository
-2. Create a new branch
-
-```bash
-git checkout -b feature/your-feature-name
-```
-
-3. Commit your changes
-
-```bash
-git commit -m "Add your feature"
-```
-
-4. Push to your branch
-
-```bash
-git push origin feature/your-feature-name
-```
-
-5. Open a pull request
-
----
-
-## License
-
-This project is currently released under the **MIT License**.
-
-```text
-MIT License
-```
-
-Update this section if you choose a different license.
-
----
-
-## Author
-
-**Mahmudul Haque Sakib**
-CSE Graduate | AI/ML Enthusiast | Data Science Focused
-
-* GitHub: `[Add GitHub profile link]`
-* LinkedIn: `[Add LinkedIn profile link]`
-
----
 
 ## Acknowledgments
 

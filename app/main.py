@@ -1,4 +1,7 @@
+import sqlite3
+import pandas as pd
 import streamlit as st
+
 from app.config.settings import settings
 from app.db.schema import init_db
 from app.db.reset import reset_tasks_table
@@ -10,6 +13,20 @@ st.set_page_config(page_title=settings.APP_TITLE, layout="wide")
 
 # Initialize DB once at startup
 init_db()
+
+
+def get_tasks_dataframe() -> pd.DataFrame:
+    conn = sqlite3.connect("data/my_tasks.db")
+    query = """
+        SELECT id, title, description, status, created_at
+        FROM tasks
+        ORDER BY created_at DESC
+        LIMIT 10
+    """
+    df = pd.read_sql_query(query, conn)
+    conn.close()
+    return df
+
 
 st.title(settings.APP_TITLE)
 st.write(
@@ -45,6 +62,18 @@ with st.sidebar:
         st.success("All tasks deleted and ID reset to 1.")
         st.rerun()
 
+    st.divider()
+    st.subheader("Current Tasks")
+
+    try:
+        df = get_tasks_dataframe()
+        if df.empty:
+            st.info("No tasks found.")
+        else:
+            st.dataframe(df, use_container_width=True, hide_index=True)
+    except Exception as e:
+        st.error(f"Could not load tasks: {e}")
+
 # Chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -67,6 +96,7 @@ if prompt:
                 )
                 st.markdown(result)
                 add_message("assistant", result)
+                st.rerun()
             except Exception as e:
                 error_msg = f"Error: {str(e)}"
                 st.error(error_msg)
