@@ -141,15 +141,10 @@ taskbot-sql-agent/
 │   └── utils/
 │       ├── __init__.py
 │       └── logger.py
-├── tests/
-│   ├── test_db.py
-│   ├── test_agent.py
-│   └── test_service.py
 ├── data/
 ├── .env
 ├── .env.example
 ├── .gitignore
-├── pytest.ini
 ├── requirements.txt
 ├── README.md
 └── check_db.py
@@ -311,13 +306,6 @@ Task "Complete report" was deleted successfully.
 
 ---
 
-
-### Example Markdown
-
-```md
-![Home Screen](assets\First Page.png)
-![Task ](assets\Second Page.png)
-```
 
 
 ---
