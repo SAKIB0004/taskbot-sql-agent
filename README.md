@@ -63,7 +63,7 @@ The assistant interprets the user’s request, interacts with the SQL database t
 * **LangGraph**
 * **Groq LLM API**
 * **python-dotenv**
-* **pytest**
+
 
 ### Main Libraries
 
@@ -74,7 +74,6 @@ The assistant interprets the user’s request, interacts with the SQL database t
 * `langchain-groq`
 * `sqlalchemy`
 * `python-dotenv`
-* `pytest`
 
 ---
 
@@ -124,7 +123,8 @@ taskbot-sql-agent/
 │   │   ├── __init__.py
 │   │   ├── connection.py
 │   │   ├── schema.py
-│   │   └── seed.py
+│   │   ├── seed.py
+│   │   └── reset.py
 │   ├── agent/
 │   │   ├── __init__.py
 │   │   ├── llm.py
@@ -141,11 +141,20 @@ taskbot-sql-agent/
 │   └── utils/
 │       ├── __init__.py
 │       └── logger.py
+├── tests/
+│   ├── test_db.py
+│   ├── test_agent.py
+│   └── test_service.py
 ├── data/
 ├── .env
+├── .env.example
+├── .gitignore
+├── pytest.ini
 ├── requirements.txt
 ├── README.md
 └── check_db.py
+
+
 ```
 
 ---
