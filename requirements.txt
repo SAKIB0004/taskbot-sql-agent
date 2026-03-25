@@ -1,0 +1,13 @@
+streamlit
+python-dotenv
+dotenv
+langchain
+langchain-community
+langgraph
+langchain-groq
+langchain-openai
+langchain-ollama
+langchain-anthropic
+langchain-google-genai
+sqlalchemy
+pytest
